@@ -1,4 +1,4 @@
-package routes
+package person
 
 import (
 	"encoding/json"
@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-var People []entities.Person
+var People []entities.Person = make([]entities.Person, 0)
 
 func GetPeople(writer http.ResponseWriter, request *http.Request) {
 	if len(People) == 0 {

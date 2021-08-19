@@ -22,5 +22,6 @@ func main() {
 	router.HandleFunc("/contato", person.CreatePerson).Methods("POST")
 	router.HandleFunc("/contato/{id}", person.DeletePerson).Methods("DELETE")
 
+	log.Println("Starting server on port 8000")
 	log.Fatal(http.ListenAndServe(":8000", router))
 }

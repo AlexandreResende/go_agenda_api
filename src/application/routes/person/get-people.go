@@ -8,12 +8,11 @@ import (
 
 var People []entities.Person = make([]entities.Person, 0)
 
-func GetPeople(writer http.ResponseWriter, request *http.Request) {
-	if len(People) == 0 {
-		json.NewEncoder(writer).Encode(&entities.Person{})
-
-		return
-	}
-
-	json.NewEncoder(writer).Encode(People)
+type GetPeopleResponse struct {
+	People []entities.Person `json:"people"`
 }
+
+func GetPeople(writer http.ResponseWriter, request *http.Request) {
+	json.NewEncoder(writer).Encode(GetPeopleResponse{People})
+}
+// check json.Unmarshal

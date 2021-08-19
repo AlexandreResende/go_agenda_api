@@ -25,6 +25,8 @@ func DeletePerson(writer http.ResponseWriter, request *http.Request) {
 
 	if !deleted {
 		json.NewEncoder(writer).Encode("User not found")
+
+		return
 	}
 
 	json.NewEncoder(writer).Encode(deletePersonResponse{deleted})
